@@ -70,6 +70,7 @@ import ChartCustom1 from '../pages/chartCustom1';
 import VictoryChartScreen from '../pages/victoryChart';
 import BedTime from '../pages/Bedtime';
 import ToDoListMongoDB from '../pages/toDoListMongoDB';
+import ReactHookFrom from '../pages/reactHookForm';
 
 const theme = {
   ...DefaultTheme,
@@ -227,6 +228,7 @@ const Navigation = () => {
         />
         <Stack.Screen name="BedTime" component={BedTime} />
         <Stack.Screen name="ToDoListMongoDB" component={ToDoListMongoDB} />
+        <Stack.Screen name="ReactHookFrom" component={ReactHookFrom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
