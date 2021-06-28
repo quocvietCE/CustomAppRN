@@ -110,71 +110,79 @@ const NavigatePage = ({navigation}) => {
 
   const navigateToSynchronisedFlatlist = useCallback(() => {
     navigation.navigate('SynchronisedFlatlists');
-  }, []);
+  }, [navigation]);
 
   const navigateToAccordionMenu = useCallback(() => {
     navigation.navigate('AccordionMenu');
-  }, []);
+  }, [navigation]);
 
   const navigateToButtonCustom = useCallback(() => {
     navigation.navigate('ButtonCustom');
-  }, []);
+  }, [navigation]);
 
   const navigateToSwipeDelete = useCallback(() => {
     navigation.navigate('SwipeDelete');
-  }, []);
+  }, [navigation]);
 
   const navigateToUberSwipeToDelete = useCallback(() => {
     navigation.navigate('UberSwipeToDelete');
-  }, []);
+  }, [navigation]);
 
   const navigateToFacebook = useCallback(() => {
     navigation.navigate('Facebook');
-  }, []);
+  }, [navigation]);
 
   const navigateToOnBoardScreenCarousel = useCallback(() => {
     navigation.navigate('OnboardScreenCarousel');
-  }, []);
+  }, [navigation]);
 
   const navigateToFloatingHeart = useCallback(() => {
     navigation.navigate('FloatingHeart');
-  }, []);
+  }, [navigation]);
 
   const navigateToProfileScreenUI = useCallback(() => {
     navigation.navigate('ProfileScreenUI');
-  }, []);
+  }, [navigation]);
 
   const navigateToBankingApp = useCallback(() => {
     navigation.navigate('BankingApp');
-  }, []);
+  }, [navigation]);
 
   const navigateToStarRatingsAnimation = useCallback(() => {
     navigation.navigate('StarRatingsAnimation');
-  }, []);
+  }, [navigation]);
 
   const navigateToChartCustom = useCallback(() => {
     navigation.navigate('ChartCustom');
-  }, []);
+  }, [navigation]);
 
   const navigateToVictoryChartScreen = useCallback(() => {
     navigation.navigate('VictoryChartScreen');
-  }, []);
+  }, [navigation]);
 
   const navigateToNeumorphismMusicUI = useCallback(() => {
     navigation.navigate('NeumorphismMusicUI');
-  }, []);
+  }, [navigation]);
 
   const navigateToBedTime = useCallback(() => {
     navigation.navigate('BedTime');
-  }, []);
+  }, [navigation]);
 
   const navigateToDoListWithMongoDB = useCallback(() => {
     navigation.navigate('ToDoListMongoDB');
-  }, []);
+  }, [navigation]);
 
   const navigateToReactHookFrom = useCallback(() => {
     navigation.navigate('ReactHookFrom');
-  }, []);
+  }, [navigation]);
+
+  const navigateToIOS13GUI = useCallback(() => {
+    navigation.navigate('UI_IOS13');
+  }, [navigation]);
+
+  const navigateToCanItBeDone = useCallback(() => {
+    navigation.navigate('CanItBeDone');
+  }, [navigation]);
 
   return (
     <ScrollView style={styles.container}>
@@ -362,6 +370,14 @@ const NavigatePage = ({navigation}) => {
           style={styles.btnNavigation}
           onPress={navigateToReactHookFrom}>
           <Text style={styles.title}>React Hook From</Text>
+        </Pressable>
+
+        <Pressable style={styles.btnNavigation} onPress={navigateToIOS13GUI}>
+          <Text style={styles.title}>Building iOS 13 GUI</Text>
+        </Pressable>
+
+        <Pressable style={styles.btnNavigation} onPress={navigateToCanItBeDone}>
+          <Text style={styles.title}>Can It Be Done</Text>
         </Pressable>
       </View>
     </ScrollView>

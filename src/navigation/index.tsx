@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import {Easing} from 'react-native';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 
@@ -72,6 +73,13 @@ import BedTime from '../pages/Bedtime';
 import ToDoListMongoDB from '../pages/toDoListMongoDB';
 import ReactHookFrom from '../pages/reactHookForm';
 
+import HomeScreen from '../pages/screens/home/Home';
+import ContactsScreen from '../pages/screens/contact/ContactsScreen';
+import SettingsScreen from '../pages/screens/settings/Settings';
+import SoundsScreen from '../pages/screens/settings/Sounds';
+
+import CanItBeDone from './CanItBeDoneNavigation';
+
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -99,8 +107,53 @@ export type AppParamType = {
   CarouselMovie: undefined;
 };
 
-// const Stack = createStackNavigator();
+const StackNavigation = createStackNavigator();
 const Stack = createSharedElementStackNavigator();
+
+const UI_IOS13 = () => {
+  return (
+    <StackNavigation.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#161616',
+        },
+        headerTintColor: '#0A84FF',
+        headerTitleStyle: {
+          // fontFamily: 'SF-Pro-Display-Semibold',
+          fontWeight: 'bold',
+          fontSize: 17,
+          color: '#FFFFFF',
+          letterSpacing: -0.41,
+          textAlign: 'center',
+          lineHeight: 22,
+        },
+      }}>
+      <StackNavigation.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <StackNavigation.Screen
+        name="Contacts"
+        component={ContactsScreen}
+        options={{headerShown: false}}
+      />
+      <StackNavigation.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{headerShown: false}}
+      />
+      <StackNavigation.Screen
+        name="Sounds"
+        component={SoundsScreen}
+        options={{
+          headerTitle: 'Sounds & Haptics',
+        }}
+      />
+    </StackNavigation.Navigator>
+  );
+};
 
 const Navigation = () => {
   return (
@@ -229,6 +282,8 @@ const Navigation = () => {
         <Stack.Screen name="BedTime" component={BedTime} />
         <Stack.Screen name="ToDoListMongoDB" component={ToDoListMongoDB} />
         <Stack.Screen name="ReactHookFrom" component={ReactHookFrom} />
+        <Stack.Screen name="UI_IOS13" component={UI_IOS13} />
+        <Stack.Screen name="CanItBeDone" component={CanItBeDone} />
       </Stack.Navigator>
     </NavigationContainer>
   );
