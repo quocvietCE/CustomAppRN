@@ -233,7 +233,7 @@ export default function EventList({navigation}) {
                     onPress={() => {
                       console.log('Index', index);
                       console.log('EventList item: ', item);
-                      navigation.navigate('CardDetail', {
+                      navigation.navigate('EventCardDetail', {
                         item,
                       });
                     }}>
