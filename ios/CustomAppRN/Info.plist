@@ -69,6 +69,12 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>SFProDisplay-Medium.otf</string>
+		<string>SFProDisplay-Regular.otf</string>
+		<string>SFProDisplay-Semibold.otf</string>
+		<string>SFProText-Medium.otf</string>
+		<string>SFProText-Regular.otf</string>
+		<string>SFProText-Semibold.otf</string>
 	</array>
 </dict>
 </plist>

@@ -21,6 +21,8 @@ import CardImage from '../pages/CustomUIList/cardImage';
 import SynchronisedFlatList from '../pages/CustomUIList/synchronisedFlatLists';
 import GalleryView from '../pages/CustomUIList/galleryViewSyncedFlatLists';
 import CardImageWormPage from '../pages/CustomUIList/cardImageWormPage';
+import CardImageBackground from '../pages/CustomUIList/cardImageBackground';
+// import LiquidSwipe from '../pages/CustomUIList/liquidSwipe';
 
 // ------------------- Custom UI List ---------------------------
 
@@ -45,6 +47,8 @@ export type CustomUIListParamType = {
   SynchronisedFlatList: undefined;
   GalleryView: undefined;
   CardImageWormPage: undefined;
+  CardImageBackground: undefined;
+  // LiquidSwipe: undefined;
 };
 
 const CustomUIStack = createStackNavigator<CustomUIListParamType>();
@@ -102,6 +106,11 @@ const CustomUIListStackNavigator = () => {
         name="CardImageWormPage"
         component={CardImageWormPage}
       />
+      <CustomUIStack.Screen
+        name="CardImageBackground"
+        component={CardImageBackground}
+      />
+      {/* <CustomUIStack.Screen name="LiquidSwipe" component={LiquidSwipe} /> */}
     </CustomUIStack.Navigator>
   );
 };

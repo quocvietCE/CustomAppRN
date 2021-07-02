@@ -80,6 +80,14 @@ const ChartListNavigation = ({navigation}) => {
     navigation.navigate('CardImageWormPage');
   }, [navigation]);
 
+  const navigateToCardImageBackground = useCallback(() => {
+    navigation.navigate('CardImageBackground');
+  }, [navigation]);
+
+  // const navigateToLiquidSwipe = useCallback(() => {
+  //   navigation.navigate('LiquidSwipe');
+  // }, [navigation]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={{marginBottom: 100}}>
@@ -185,6 +193,16 @@ const ChartListNavigation = ({navigation}) => {
           onPress={navigateToCardImageWormPage}>
           <Text style={styles.title}>Card Image Worm Page</Text>
         </Pressable>
+
+        <Pressable
+          style={styles.btnNavigation}
+          onPress={navigateToCardImageBackground}>
+          <Text style={styles.title}>Card Image Background</Text>
+        </Pressable>
+
+        {/* <Pressable style={styles.btnNavigation} onPress={navigateToLiquidSwipe}>
+          <Text style={styles.title}>Liquid Swipe</Text>
+        </Pressable> */}
       </View>
     </ScrollView>
   );

@@ -12,14 +12,6 @@ const NavigatePage = ({navigation}) => {
     navigation.navigate('EventCards');
   }, [navigation]);
 
-  const navigateToCardImageBackground = useCallback(() => {
-    navigation.navigate('CardImageBackground');
-  }, [navigation]);
-
-  // const navigateToCardImageWormPage = useCallback(() => {
-  //   navigation.navigate('CardImageWormPage');
-  // }, [navigation]);
-
   const navigateToCarouselMovie = useCallback(() => {
     navigation.navigate('CarouselMovie');
   }, [navigation]);
@@ -86,16 +78,6 @@ const NavigatePage = ({navigation}) => {
           <Text style={styles.title}>Event Cards Share Element</Text>
         </Pressable>
 
-        <Pressable
-          style={styles.btnNavigation}
-          onPress={navigateToCardImageBackground}>
-          <Text style={styles.title}>Card Image Background</Text>
-        </Pressable>
-        {/* <Pressable
-          style={styles.btnNavigation}
-          onPress={navigateToCardImageWormPage}>
-          <Text style={styles.title}>Card Image Worm Page</Text>
-        </Pressable> */}
         <Pressable
           style={styles.btnNavigation}
           onPress={navigateToCarouselMovie}>

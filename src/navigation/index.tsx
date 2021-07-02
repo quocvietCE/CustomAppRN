@@ -13,8 +13,6 @@ import NavigationPage from '../pages/navigatePage';
 import EventCards from '../pages/eventCards';
 import EventCardDetail from '../pages/eventCards/cardDetail';
 
-import CardImageBackground from '../pages/cardImageBackground';
-// import CardImageWormPage from '../pages/cardImageWormPage';
 import CarouselMovie from '../pages/carouselMovie';
 import MoviesListDetails from '../pages/carouselMovie/MoviesListDetails';
 
@@ -39,8 +37,6 @@ import TravelUpDetails from '../pages/travelUpShareElement/TravelUpDetails';
 
 import TravelList from '../pages/travelCardShareElement/TravelList';
 import TravelDetails from '../pages/travelCardShareElement/TravelListDetail';
-
-import CookingQuest from '../pages/cookingQuest';
 
 import CanItBeDone from './CanItBeDoneNavigation';
 import Application from './ApplicationNavigation';
@@ -69,15 +65,11 @@ const Navigation = () => {
         initialRouteName={'NavigationPage'}>
         <Stack.Screen name="NavigationPage" component={NavigationPage} />
         <Stack.Screen name="HeadphoneCarousel" component={HeadphoneCarousel} />
+        <Stack.Screen name="UrbanEarsDetails" component={UrbanEarsDetails} />
 
         <Stack.Screen name="EventCards" component={EventCards} />
         <Stack.Screen name="EventCardDetail" component={EventCardDetail} />
 
-        <Stack.Screen
-          name="CardImageBackground"
-          component={CardImageBackground}
-        />
-        {/* <Stack.Screen name="CardImageWormPage" component={CardImageWormPage} /> */}
         <Stack.Screen name="CarouselMovie" component={CarouselMovie} />
         <Stack.Screen name="MoviesListDetails" component={MoviesListDetails} />
         <Stack.Screen
@@ -109,8 +101,6 @@ const Navigation = () => {
           })}
         />
 
-        <Stack.Screen name="UrbanEarsDetails" component={UrbanEarsDetails} />
-
         <Stack.Screen name="SalonShareElement" component={SalonShareElement} />
         <Stack.Screen name="SalonListDetail" component={SalonListDetail} />
 
@@ -130,7 +120,6 @@ const Navigation = () => {
 
         <Stack.Screen name="TravelList" component={TravelList} />
         <Stack.Screen name="TravelListDetail" component={TravelDetails} />
-        <Stack.Screen name="CookingQuest" component={CookingQuest} />
 
         <Stack.Screen name="LibrarySample" component={LibrarySample} />
         <Stack.Screen name="ChartList" component={ChartList} />
