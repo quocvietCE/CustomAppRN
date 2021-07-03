@@ -7,11 +7,11 @@ import Slide from './Slide';
 export const assets = slides.map(({picture}) => picture);
 
 const LiquidSwipe = () => {
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(0);
   const prev = slides[index - 1];
   const next = slides[index + 1];
-  console.log('assets: ', assets);
-  console.log('prev: ', prev);
+  // console.log('assets: ', assets);
+  // console.log('prev: ', prev);
   return (
     <Slider
       key={index}

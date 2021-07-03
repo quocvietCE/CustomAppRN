@@ -43,16 +43,16 @@ const Slider = ({
   const isTransitioningLeft = useSharedValue(false);
   const isTransitioningRight = useSharedValue(false);
 
-  console.log('prev: ', prev);
-  console.log('next: ', next);
-  console.log('current: ', current);
+  // console.log('prev: ', prev);
+  // console.log('next: ', next);
+  // console.log('current: ', current);
 
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: ({x}) => {
-      if (x <= MARGIN_WIDTH) {
+      if (x <= MARGIN_WIDTH && hasPrev) {
         activeSide.value = Side.LEFT;
-        // zIndex.value = 100;
-      } else if (x >= WIDTH - MARGIN_WIDTH) {
+        zIndex.value = 100;
+      } else if (x >= WIDTH - MARGIN_WIDTH && hasNext) {
         activeSide.value = Side.RIGHT;
       } else {
         activeSide.value = Side.NONE;
@@ -67,78 +67,90 @@ const Slider = ({
         right.y.value = y;
       }
     },
-    // onEnd: ({velocityX, velocityY, x}) => {
-    //   if (activeSide.value === Side.LEFT) {
-    //     const dest = snapPoint(x, velocityX, LEFT_SNAP_POINTS);
-    //     isTransitioningLeft.value = dest === PREV;
-    //     left.x.value = withSpring(
-    //       dest,
-    //       {
-    //         velocity: velocityX,
-    //         overshootClamping: isTransitioningLeft.value ? true : false,
-    //         restSpeedThreshold: isTransitioningLeft.value ? 100 : 0.01,
-    //         restDisplacementThreshold: isTransitioningLeft.value ? 100 : 0.01,
-    //       },
-    //       () => {
-    //         if (isTransitioningLeft.value) {
-    //           runOnJS(setIndex)(index - 1);
-    //         } else {
-    //           zIndex.value = 0;
-    //           activeSide.value = Side.NONE;
-    //         }
-    //       },
-    //     );
-    //     left.y.value = withSpring(HEIGHT / 2, {velocity: velocityY});
-    //   } else if (activeSide.value === Side.RIGHT) {
-    //     const dest = snapPoint(x, velocityX, RIGHT_SNAP_POINTS);
-    //     isTransitioningRight.value = dest === NEXT;
-    //     right.x.value = withSpring(
-    //       WIDTH - dest,
-    //       {
-    //         velocity: velocityX,
-    //         overshootClamping: isTransitioningRight.value ? true : false,
-    //         restSpeedThreshold: isTransitioningRight.value ? 100 : 0.01,
-    //         restDisplacementThreshold: isTransitioningRight.value ? 100 : 0.01,
-    //       },
-    //       () => {
-    //         if (isTransitioningRight.value) {
-    //           runOnJS(setIndex)(index + 1);
-    //         } else {
-    //           activeSide.value = Side.NONE;
-    //         }
-    //       },
-    //     );
-    //     right.y.value = withSpring(HEIGHT / 2, {velocity: velocityY});
-    //   }
-    // },
+    onEnd: ({velocityX, velocityY, x}) => {
+      if (activeSide.value === Side.LEFT) {
+        const dest = snapPoint(x, velocityX, LEFT_SNAP_POINTS);
+        isTransitioningLeft.value = dest === PREV;
+        left.x.value = withSpring(
+          dest,
+          {
+            velocity: velocityX,
+            overshootClamping: isTransitioningLeft.value ? true : false,
+            restSpeedThreshold: isTransitioningLeft.value ? 100 : 0.01,
+            restDisplacementThreshold: isTransitioningLeft.value ? 100 : 0.01,
+          },
+          () => {
+            if (isTransitioningLeft.value) {
+              runOnJS(setIndex)(index - 1);
+            } else {
+              zIndex.value = 0;
+              activeSide.value = Side.NONE;
+            }
+          },
+        );
+        left.y.value = withSpring(HEIGHT / 2, {velocity: velocityY});
+      } else if (activeSide.value === Side.RIGHT) {
+        const dest = snapPoint(x, velocityX, RIGHT_SNAP_POINTS);
+        isTransitioningRight.value = dest === NEXT;
+        right.x.value = withSpring(
+          WIDTH - dest,
+          {
+            velocity: velocityX,
+            overshootClamping: isTransitioningRight.value ? true : false,
+            restSpeedThreshold: isTransitioningRight.value ? 100 : 0.01,
+            restDisplacementThreshold: isTransitioningRight.value ? 100 : 0.01,
+          },
+          () => {
+            if (isTransitioningRight.value) {
+              runOnJS(setIndex)(index + 1);
+            } else {
+              activeSide.value = Side.NONE;
+            }
+          },
+        );
+        right.y.value = withSpring(HEIGHT / 2, {velocity: velocityY});
+      }
+    },
   });
+
+  const leftStyle = useAnimatedStyle(() => ({
+    zIndex: zIndex.value,
+  }));
 
   useEffect(() => {
     left.x.value = withSpring(MARGIN_WIDTH);
     right.x.value = withSpring(MARGIN_WIDTH);
-  }, []);
+  }, [index, left, right]);
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <Animated.View
-        style={[
-          StyleSheet.absoluteFill,
-          // {backgroundColor: 'red', borderWidth: 1},
-        ]}>
+      <Animated.View style={StyleSheet.absoluteFill}>
         {current}
         {prev && (
-          <View style={[StyleSheet.absoluteFill]}>
-            <Wave side={Side.LEFT} position={left}>
+          <Animated.View style={[StyleSheet.absoluteFill, leftStyle]}>
+            <Wave
+              side={Side.LEFT}
+              position={left}
+              isTransitioning={isTransitioningLeft}>
               {prev}
             </Wave>
-          </View>
+            <Button position={left} side={Side.LEFT} activeSide={activeSide} />
+          </Animated.View>
         )}
         {next && (
-          <View style={[StyleSheet.absoluteFill]}>
-            <Wave side={Side.RIGHT} position={right}>
+          <Animated.View style={StyleSheet.absoluteFill}>
+            <Wave
+              side={Side.RIGHT}
+              position={right}
+              isTransitioning={isTransitioningRight}>
               {next}
             </Wave>
-          </View>
+            <Button
+              position={right}
+              side={Side.RIGHT}
+              activeSide={activeSide}
+            />
+          </Animated.View>
         )}
       </Animated.View>
     </PanGestureHandler>

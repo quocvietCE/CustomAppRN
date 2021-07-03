@@ -42,7 +42,7 @@
     "react-native-masonry-layout": "^1.0.6",
     "react-native-masonry-list": "^2.16.1",
     "react-native-pager-view": "^5.1.9",
-    "react-native-reanimated": "^2.0.0",
+    "react-native-reanimated": "2.2.0",
     "react-native-redash": "^16.0.11",
     "react-native-responsive-linechart": "^5.7.1",
     "react-native-safe-area-context": "^3.2.0",
