@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     padding: 75,
     paddingTop: 150,
     alignItems: 'center',
+    // backgroundColor: 'red',
   },
   image: {
     width: SIZE,
@@ -21,7 +22,8 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     marginBottom: 16,
-    fontFamily: 'SFProDisplay-Bold',
+    // fontFamily: 'SFProDisplay-Bold',
+    fontFamily: 'SFProDisplay-Semibold',
   },
   description: {
     fontSize: 18,
@@ -42,9 +44,10 @@ interface SlideProps {
 
 const Slide = ({slide: {picture, color, title, description}}: SlideProps) => {
   const lighterColor = Color(color).lighten(0.8).toString();
+  // console.log('lighterColor: ', lighterColor);
   return (
     <>
-      <Svg style={StyleSheet.absoluteFill}>
+      <Svg style={[StyleSheet.absoluteFill]}>
         <Defs>
           <RadialGradient id="gradient" cx="50%" cy="35%">
             <Stop offset="0%" stopColor={lighterColor} />

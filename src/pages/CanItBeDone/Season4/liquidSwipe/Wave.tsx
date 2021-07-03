@@ -9,6 +9,7 @@ import Animated, {
   useDerivedValue,
   withSpring,
 } from 'react-native-reanimated';
+import {Vector} from 'react-native-redash';
 
 export const {width: WIDTH, height: HEIGHT} = Dimensions.get('screen');
 export const MIN_LEDGE = 25;
@@ -25,11 +26,12 @@ export enum Side {
 interface WaveProps {
   side: Side;
   children: ReactNode;
+  position: Vector<Animated.SharedValue<number>>;
 }
 
-const Wave = ({side, children}: WaveProps) => {
+const Wave = ({side, children, position}: WaveProps) => {
   const animatedProps = useAnimatedProps(() => {
-    const d = ['M 0 0', `H ${WIDTH / 2}`, `V ${HEIGHT}`, 'H 0', 'Z'];
+    const d = ['M 0 0', `H ${position.x.value}`, `V ${HEIGHT}`, 'H 0', 'Z'];
 
     return {
       d: d.join(' '),
@@ -37,9 +39,13 @@ const Wave = ({side, children}: WaveProps) => {
   });
   return (
     <MaskedView
-      style={StyleSheet.absoluteFill}
+      style={[StyleSheet.absoluteFill]}
       maskElement={
-        <Svg style={StyleSheet.absoluteFill}>
+        <Svg
+          style={[
+            StyleSheet.absoluteFill,
+            {transform: [{rotateY: side === Side.RIGHT ? '180deg' : '0deg'}]},
+          ]}>
           <AnimatedPath animatedProps={animatedProps} fill="black" />
         </Svg>
       }>
