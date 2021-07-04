@@ -7,6 +7,7 @@ import ChartCircle from '../pages/ChartList/chartCircle';
 import ChartDemo from '../pages/ChartList/chartDemo';
 import ChartCustom1 from '../pages/ChartList/chartCustom1';
 import ChartVictory from '../pages/ChartList/victoryChart';
+import ChartAnimatedVersion2 from '../pages/ChartList/chartAnimatedV2';
 
 // ------------------- Chart List ---------------------------
 
@@ -17,6 +18,7 @@ export type ChartListParamType = {
   ChartDemo: undefined;
   ChartCustom1: undefined;
   ChartVictory: undefined;
+  ChartAnimatedVersion2: undefined;
 };
 
 const ChartListStack = createStackNavigator<ChartListParamType>();
@@ -33,6 +35,10 @@ const ChartListStackNavigator = () => {
       <ChartListStack.Screen name="ChartDemo" component={ChartDemo} />
       <ChartListStack.Screen name="ChartCustom1" component={ChartCustom1} />
       <ChartListStack.Screen name="ChartVictory" component={ChartVictory} />
+      <ChartListStack.Screen
+        name="ChartAnimatedVersion2"
+        component={ChartAnimatedVersion2}
+      />
     </ChartListStack.Navigator>
   );
 };

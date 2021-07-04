@@ -1,6 +1,6 @@
 import React from 'react';
 import {Animated, StyleSheet, Text, View} from 'react-native';
-import colormap from 'colormap';
+
 
 const ProgressBar = ({step, steps, height, color = '#777777'}) => {
   const [width, setWidth] = React.useState(0);

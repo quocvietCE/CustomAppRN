@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import {SPACING, fonts, width} from '../config/theme';
+import {SPACING, fonts, width} from '../../config/theme';
 
 const AVATAR_SIZE = 64;
 

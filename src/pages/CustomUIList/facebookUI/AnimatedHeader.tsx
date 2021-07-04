@@ -1,17 +1,12 @@
-// Import react
 import React from 'react';
 
-// Import react-native components
-import {StyleSheet, View, Image, ScrollView, SafeAreaView} from 'react-native';
+import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
 
-// Import react-native-vector-icons
-// from "https://github.com/oblador/react-native-vector-icons"
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
-// Import react-native-reanimated
-// from "https://github.com/software-mansion/react-native-reanimated"
-import Animated, {Easing} from 'react-native-reanimated';
+
+import Animated from 'react-native-reanimated';
 const {Value, timing} = Animated;
 
 // Declare component

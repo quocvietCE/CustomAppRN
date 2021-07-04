@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Dimensions, View} from 'react-native';
-import Animated, {interpolate, multiply} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 import Svg, {
   Circle,
   Defs,

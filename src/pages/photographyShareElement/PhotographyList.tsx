@@ -14,10 +14,10 @@ import {
 import {SharedElement} from 'react-navigation-shared-element';
 import {SPACING} from '../../config/theme';
 import data from '../../config/data/photography';
-import UserCard from '../../components/UserCard';
+import UserCard from './UserCard';
 const {width, height} = Dimensions.get('screen');
 import TouchableScale from 'react-native-touchable-scale';
-import PhotographyDetails from '../../components/PhotographyDetails';
+import PhotographyDetails from './PhotographyDetails';
 import GoBack from '../../components/GoBack';
 
 export default function PhotographyList({navigation}) {

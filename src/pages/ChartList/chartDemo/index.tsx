@@ -10,14 +10,7 @@ import BarGraph from './BarGraph';
 
 Icon.loadFont();
 
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
+import {LineChart} from 'react-native-chart-kit';
 import {
   Chart,
   VerticalAxis,
@@ -135,13 +128,13 @@ const CarChart = () => {
               </View>
             ) : null;
           }}
-          onDataPointClick={(data) => {
+          onDataPointClick={data => {
             console.log('data: ', data);
             let isSamePoint =
               tooltipPos.x === data.x && tooltipPos.y === data.y;
 
             isSamePoint
-              ? setTooltipPos((previousState) => {
+              ? setTooltipPos(previousState => {
                   return {
                     ...previousState,
                     value: data.value,
@@ -255,13 +248,13 @@ const CarChart1 = () => {
               </View>
             ) : null;
           }}
-          onDataPointClick={(data) => {
+          onDataPointClick={data => {
             console.log('data: ', data);
             let isSamePoint =
               tooltipPos.x === data.x && tooltipPos.y === data.y;
 
             isSamePoint
-              ? setTooltipPos((previousState) => {
+              ? setTooltipPos(previousState => {
                   return {
                     ...previousState,
                     value: data.value,
@@ -316,7 +309,7 @@ const CarChart2 = () => {
         >
           <VerticalAxis
             tickCount={10}
-            theme={{labels: {formatter: (v) => v.toFixed(2)}}}
+            theme={{labels: {formatter: v => v.toFixed(2)}}}
           />
           <HorizontalAxis tickCount={3} />
           <Area
@@ -368,10 +361,6 @@ const CardChart3 = () => {
           <VerticalAxis
             tickCount={11}
             theme={{
-              // labels: {formatter: (v) => v.toFixed(0)},
-              // axis: {stroke: {color: 'blue', width: 5}},
-              // ticks: {stroke: {color: 'red', width: 2}},
-
               axis: {
                 visible: true,
                 stroke: {
@@ -412,7 +401,6 @@ const CardChart3 = () => {
                   dx: -10,
                   dy: 4,
                   rotation: 0,
-                  // fontFamily: 'your font here',
                 },
                 formatter: (v: number) => String(v),
               },
@@ -425,7 +413,7 @@ const CardChart3 = () => {
               ticks: {stroke: {color: '#aaa', width: 2}},
               labels: {
                 label: {rotation: 0},
-                formatter: (v) => {
+                formatter: v => {
                   // return v.toFixed(1);
                   return 'june';
                 },
@@ -442,8 +430,6 @@ const CardChart3 = () => {
           />
           <Line
             theme={{
-              // stroke: {color: '#ffa502', width: 5},
-              // scatter: {default: {width: 4, height: 4, rx: 2}},
               stroke: {
                 color: 'red',
                 width: 1,
@@ -475,11 +461,6 @@ const CardChart3 = () => {
               },
             }}
             smoothing="none"
-            // onTooltipSelect={(
-            //   value: {x: number; y: number; meta?: any},
-            //   index: number,
-            // ) => console.log(`value: ${value}, index: ${index}`)}
-            // onTooltipSelectEnd={() => console.log('onTooltipSelectEnd')}
             hideTooltipAfter={10}
             hideTooltipOnDragEnd={false}
             tooltipComponent={<Tooltip />}
@@ -523,7 +504,7 @@ const CardChart4 = () => {
           yDomain={{min: -4, max: 20}}>
           <VerticalAxis
             tickCount={10}
-            theme={{labels: {formatter: (v) => v.toFixed(2)}}}
+            theme={{labels: {formatter: v => v.toFixed(2)}}}
           />
           <HorizontalAxis tickCount={3} />
           <Area
@@ -675,47 +656,12 @@ const CardChart6 = () => {
               </Text>
             </View>
 
-            {/*
-             *
-             * The Column Chart will live here
-             *
-             */}
             <BarGraph color={color} data={data} />
           </View>
 
           <View style={styles.footer} />
         </LinearGradient>
       </View>
-    </View>
-  );
-};
-
-const CardChart7 = () => {
-  return (
-    <View style={styles.containerCard}>
-      <View style={styles.headerCard}>
-        <Text style={styles.titleProgress}>Progress Tracker 6</Text>
-        <Text style={styles.goodJob}>
-          Good job, Shanmon! You can see big wins when you three on-time
-          payments
-        </Text>
-      </View>
-      <View style={{marginVertical: 20}} />
-    </View>
-  );
-};
-
-const CardChart8 = () => {
-  return (
-    <View style={styles.containerCard}>
-      <View style={styles.headerCard}>
-        <Text style={styles.titleProgress}>Progress Tracker 6</Text>
-        <Text style={styles.goodJob}>
-          Good job, Shanmon! You can see big wins when you three on-time
-          payments
-        </Text>
-      </View>
-      <View style={{marginVertical: 20}} />
     </View>
   );
 };
@@ -743,8 +689,6 @@ const ChartDemo = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     backgroundColor: '#ECF3F8',
     padding: 10,

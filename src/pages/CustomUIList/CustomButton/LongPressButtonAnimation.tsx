@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {StatusBar, Alert, Animated, Text, View, StyleSheet} from 'react-native';
-import Constants from 'expo-constants';
 import {State, TapGestureHandler} from 'react-native-gesture-handler';
 
 const DURATION = 1000;
@@ -13,7 +12,7 @@ export default function LongPressButtonAnimation() {
   const [width, setWidth] = React.useState(1000);
   let date = 0;
 
-  const animation = (toValue) => {
+  const animation = toValue => {
     return Animated.timing(animatedValue, {
       toValue,
       duration: DURATION,
@@ -40,7 +39,7 @@ export default function LongPressButtonAnimation() {
   return (
     <>
       <TapGestureHandler
-        onHandlerStateChange={(ev) => {
+        onHandlerStateChange={ev => {
           if (ev.nativeEvent.state === State.BEGAN) {
             // Set the date, this is tricky because we don't know from
             // reactive animation when it finished and I couldn't use it :(
@@ -57,7 +56,7 @@ export default function LongPressButtonAnimation() {
         }}>
         <View
           style={styles.button}
-          onLayout={(ev) => {
+          onLayout={ev => {
             setWidth(ev.nativeEvent.layout.width);
           }}>
           <Animated.View

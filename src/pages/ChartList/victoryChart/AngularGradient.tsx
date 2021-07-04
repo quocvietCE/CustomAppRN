@@ -10,7 +10,6 @@ import Svg, {
   Stop,
 } from 'react-native-svg';
 import Animated from 'react-native-reanimated';
-// import {StyleGuide} from '../components';
 
 const {width} = Dimensions.get('window');
 const {PI, cos, sin} = Math;

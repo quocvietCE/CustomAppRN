@@ -20,7 +20,6 @@ import {
 import {SharedElement} from 'react-navigation-shared-element';
 import {SPACING, width} from '../../config/theme';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import travelup from '../../config/data/travelup';
 import GoBack from '../../components/GoBack';
 
 const dataNew = [
@@ -55,8 +54,6 @@ const dataNew = [
     name: 'Denali',
   },
 ];
-
-// import DotIndicator from '../../components/DotIndicator';
 
 const IMAGE_WIDTH = width * 0.86;
 const IMAGE_HEIGHT = IMAGE_WIDTH * 1.5;

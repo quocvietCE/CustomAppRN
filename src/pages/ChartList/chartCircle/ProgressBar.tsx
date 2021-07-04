@@ -1,8 +1,5 @@
 import React from 'react';
 import {View, Text, Animated} from 'react-native';
-// import Animated from 'react-native-reanimated';
-// import {interpolate, multiply} from 'react-native-reanimated';
-// import {Svg, Circle} from 'react-native-svg';
 
 const ProgressBar = ({step, steps, height}) => {
   const animatedValue = React.useRef(new Animated.Value(-1000)).current;
@@ -27,7 +24,7 @@ const ProgressBar = ({step, steps, height}) => {
         ${step}/{steps}
       </Text>
       <View
-        onLayout={(e) => {
+        onLayout={e => {
           const newWidth = e.nativeEvent.layout.width;
           setWidth(newWidth);
         }}
@@ -58,20 +55,3 @@ const ProgressBar = ({step, steps, height}) => {
 };
 
 export default ProgressBar;
-// <View
-//       style={{
-//         height: height,
-//         backgroundColor: 'rgba(0,0,0,0.1)',
-//         borderRadius: height,
-//       }}>
-//       <View
-//         style={{
-//           height: height,
-//           backgroundColor: 'rgba(0,0,0,0.5)',
-//           borderRadius: height,
-//           width: '100%',
-//           left: 0,
-//           top: 0,
-//         }}
-//       />
-//     </View>

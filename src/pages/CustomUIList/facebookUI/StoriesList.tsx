@@ -11,13 +11,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-// Import react-native-vector-icons
-// from "https://github.com/oblador/react-native-vector-icons"
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
-// Import react-native-reanimated
-// from "https://github.com/software-mansion/react-native-reanimated"
+
 import Animated, {Easing} from 'react-native-reanimated';
 const {Value, timing} = Animated;
 

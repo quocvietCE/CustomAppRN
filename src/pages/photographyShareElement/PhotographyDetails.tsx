@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text, Animated} from 'react-native';
-import {fonts, width, SPACING} from '../config/theme';
+import {fonts, width, SPACING} from '../../config/theme';
 
 export default function PhotographyDetails({data, scrollX, style}) {
   return (

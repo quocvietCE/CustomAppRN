@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import LongPressButtonAnimation from '../../../components/LongPressButtonAnimation';
+import LongPressButtonAnimation from './LongPressButtonAnimation';
 import FloatingActionButton from './FloatingActionButton';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -103,7 +103,11 @@ const ButtonCustom = () => {
       <Text style={[styles.titleButton, {marginVertical: 40}]}>
         Swipe to Delete
       </Text>
-      <ChatItem />
+
+      <View style={{marginTop: 50}}>
+        <ChatItem />
+      </View>
+
       <FloatingActionButton />
     </ScrollView>
   );

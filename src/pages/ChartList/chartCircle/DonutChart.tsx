@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, Animated, TextInput, StyleSheet} from 'react-native';
-// import { TextInput } from 'react-native-gesture-handler';
 import Svg, {G, Circle} from 'react-native-svg';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -22,11 +21,8 @@ export default function Donut({
   const inputRef = React.useRef();
   const halfCircle = radius + strokeWidth;
   const circleCircumference = 2 * Math.PI * radius;
-  // const maxPerc = (100 * percentage) / max;
-  // const strokeDashoffset =
-  //   circleCircumference - (circleCircumference * maxPerc) / 100;
 
-  const animation = (toValue) => {
+  const animation = toValue => {
     return Animated.timing(animatedValue, {
       toValue,
       duration,
@@ -40,7 +36,7 @@ export default function Donut({
   React.useEffect(() => {
     animation(percentage);
 
-    animatedValue.addListener((v) => {
+    animatedValue.addListener(v => {
       console.log('animatedValue.addListener v: ', v);
       if (circleRef?.current) {
         const maxPerc = (100 * v.value) / max;
@@ -87,9 +83,7 @@ export default function Donut({
             strokeWidth={strokeWidth}
             r={radius}
             fill="transparent"
-            // strokeDasharray={33}
             strokeDasharray={circleCircumference}
-            // strokeDashoffset={circleCircumference / 2}
             strokeDashoffset={circleCircumference}
             strokeLinecap="round"
           />

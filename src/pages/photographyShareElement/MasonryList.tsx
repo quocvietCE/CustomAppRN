@@ -1,8 +1,8 @@
 import React from 'react';
 import Masonry from 'react-native-masonry-layout';
 import {View, Image} from 'react-native';
-import {photographyImages} from '../config/data/photography';
-import {width, SPACING} from '../config/theme';
+import {photographyImages} from '../../config/data/photography';
+import {width, SPACING} from '../../config/theme';
 
 export default function MasonryList() {
   const ref = React.useRef();

@@ -43,10 +43,6 @@ const Slider = ({
   const isTransitioningLeft = useSharedValue(false);
   const isTransitioningRight = useSharedValue(false);
 
-  // console.log('prev: ', prev);
-  // console.log('next: ', next);
-  // console.log('current: ', current);
-
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: ({x}) => {
       if (x <= MARGIN_WIDTH && hasPrev) {

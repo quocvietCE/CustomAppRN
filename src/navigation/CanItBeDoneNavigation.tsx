@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 // ------------------- Season 4 ---------------------------
 import Season4List from '../pages/CanItBeDone/Season4';
-import LiquidSwipe from '../pages/CanItBeDone/Season4/liquidSwipe';
+import LiquidSwipe from '../pages/CanItBeDone/Season4/liquidSwipeAnimatedV2';
 
 export type Season4ParamType = {
   Season4List: undefined;

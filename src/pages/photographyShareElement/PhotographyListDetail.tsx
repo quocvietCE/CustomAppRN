@@ -8,12 +8,12 @@ import {
   StatusBar,
 } from 'react-native';
 import {width, height, SPACING} from '../../config/theme';
-import UserCard from '../../components/UserCard';
+import UserCard from './UserCard';
 import {SharedElement} from 'react-navigation-shared-element';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {ScrollView} from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
-import MasonryList from '../../components/MasonryList';
+import MasonryList from './MasonryList';
 
 const PhotographyListDetails = ({navigation, route}) => {
   const {item} = route.params;

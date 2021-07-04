@@ -24,6 +24,10 @@ const ChartListNavigation = ({navigation}) => {
     navigation.navigate('ChartVictory');
   }, [navigation]);
 
+  const navigateToAnimatedV2 = useCallback(() => {
+    navigation.navigate('ChartAnimatedVersion2');
+  }, [navigation]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={{marginBottom: 100}}>
@@ -46,6 +50,10 @@ const ChartListNavigation = ({navigation}) => {
 
         <Pressable style={styles.btnNavigation} onPress={navigateToCharVictory}>
           <Text style={styles.title}>Chart Victory</Text>
+        </Pressable>
+
+        <Pressable style={styles.btnNavigation} onPress={navigateToAnimatedV2}>
+          <Text style={styles.title}>Chart With Animated v2 *</Text>
         </Pressable>
       </View>
     </ScrollView>

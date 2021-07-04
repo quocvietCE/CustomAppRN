@@ -1,5 +1,3 @@
-import Animated from 'react-native-reanimated';
-
 export type SemiCircularProgressType = {
   width?: number;
   height?: number;

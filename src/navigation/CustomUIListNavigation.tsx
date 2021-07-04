@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import CustomUIList from '../pages/CustomUIList';
-import CustomBottomTab from '../components/CustomIndicatorExample';
+import CustomBottomTab from '../pages/CustomUIList/CustomBottomTab';
 import CustomButton from '../pages/CustomUIList/CustomButton';
 import NeumorphismMusicUI from '../pages/CustomUIList/neumorphismMusicUI';
 import StarRatingsAnimation from '../pages/CustomUIList/starRatingsAnimation';

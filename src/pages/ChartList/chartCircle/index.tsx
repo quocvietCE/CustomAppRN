@@ -1,26 +1,16 @@
 import React from 'react';
 import {View, Text, Animated, ScrollView, Dimensions} from 'react-native';
 
-import CircularProgress from '../../../components/CircularProgress';
-import CircularProgress2 from '../../../components/CircularProgress2';
-import Progress from '../../../components/ProgressBar';
-import ProgressBar from '../../../components/ProgressBar1';
-import DonutChart from '../../../components/DonutChart';
-import RainbowCharts from '../../../components/RainbowCharts';
-import {AnimatedCircularProgress} from 'react-native-circular-progress';
-import CircularSliderApp from '../../../components/CircularSliderApp';
-import {Circle} from 'react-native-svg';
-import CallingAnimated from '../../../components/CallingAnimated';
-import Home from '../../../components/CustomIndicatorExample';
+import CircularProgress from './CircularProgress';
+import CircularProgress2 from './CircularProgress2';
+import Progress from './ProgressBar';
+import ProgressBar from './ProgressBar1';
+import DonutChart from './DonutChart';
 
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
+import {Circle} from 'react-native-svg';
+
+import {LineChart, ProgressChart} from 'react-native-chart-kit';
 
 import colormap from 'colormap';
 
@@ -63,21 +53,6 @@ const dataDonut = [
   },
 ];
 
-const data = [
-  {date: new Date(2018, 9, 1).getTime(), value: 0},
-  {date: new Date(2018, 9, 16).getTime(), value: 0},
-  {date: new Date(2018, 9, 17).getTime(), value: 200},
-  {date: new Date(2018, 10, 1).getTime(), value: 200},
-  {date: new Date(2018, 10, 2).getTime(), value: 300},
-  {date: new Date(2018, 10, 5).getTime(), value: 300},
-  ,
-];
-
-// const dataProgress = {
-//   labels: ['Swim', 'Bike', 'Run'], // optional
-//   data: [0.4, 0.6, 0.8],
-// };
-
 const dataProgress = {
   labels: ['Swim'], // optional
   data: [0.4],
@@ -99,7 +74,6 @@ const Chart = () => {
   return (
     <ScrollView
       style={{
-        // justifyContent: 'center',
         flex: 1,
         paddingHorizontal: 20,
         backgroundColor: '#fff',
@@ -107,10 +81,10 @@ const Chart = () => {
       }}>
       <Text>Chart</Text>
       <CircularProgress />
-      <CallingAnimated />
+
       <Progress step={4} steps={10} height={20} />
 
-      {[...Array(arrnum).keys()].map((i) => {
+      {[...Array(arrnum).keys()].map(i => {
         const max = Math.floor(Math.random() * 40) + 10;
         const step = Math.max(2, Math.floor(Math.random() * max));
         return (
@@ -123,8 +97,9 @@ const Chart = () => {
           />
         );
       })}
-      {/* <Home /> */}
+
       <CircularProgress2 progress={80} />
+
       <DonutChart />
       {dataDonut.map((p, i) => {
         return (
@@ -137,12 +112,10 @@ const Chart = () => {
           />
         );
       })}
-      {/* <Graph {...{data}} /> */}
-      {/* <RainbowCharts /> */}
+
       <View
         style={{
           width: '100%',
-          // backgroundColor: 'red',
           borderWidth: 1,
           height: 180,
           alignItem: 'center',
@@ -153,17 +126,12 @@ const Chart = () => {
           width={8}
           backgroundWidth={8}
           fill={10}
-          // fill={0}
           tintColor="#6BBD44"
           tintColorSecondary="#6BBD44"
           backgroundColor="#B1B7BD"
           arcSweepAngle={180}
           rotation={-90}
-          // lineCap="round"
           lineCap="square"
-          dashedBackground={{width: 60, gap: 10}}
-          // dashedTint={{width: 30, gap: 5}}
-          // childrenContainerStyle={{width: 5, height: 5, borderWidth: 2}}
           renderCap={({center}) => {
             console.log('center: ', center);
             return (
@@ -177,17 +145,6 @@ const Chart = () => {
               />
             );
           }}
-          style={
-            {
-              // borderWidth: 1,
-              // justifyContent: 'center',
-              // alignItems: 'center',
-            }
-          }
-          // childrenContainerStyle={{
-          //   borderWidth: 1,
-          //   borderColor: 'red',
-          // }}
           padding={10}
         />
       </View>
@@ -247,8 +204,6 @@ const Chart = () => {
         chartConfig={chartConfig}
         hideLegend={false}
       />
-
-      {/* <CircularSliderApp /> */}
     </ScrollView>
   );
 };
