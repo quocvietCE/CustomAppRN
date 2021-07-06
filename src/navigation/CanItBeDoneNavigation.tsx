@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 // ------------------- Season 4 ---------------------------
 import Season4List from '../pages/CanItBeDone/Season4';
-import LiquidSwipe from '../pages/CanItBeDone/Season4/liquidSwipeAnimatedV2';
+// import LiquidSwipe from '../pages/CanItBeDone/Season4/liquidSwipeAnimatedV2';
 
 export type Season4ParamType = {
   Season4List: undefined;
@@ -19,7 +19,7 @@ const Season4StackNavigator = () => {
         headerShown: false,
       }}>
       <Season4Stack.Screen name="Season4List" component={Season4List} />
-      <Season4Stack.Screen name="LiquidSwipe" component={LiquidSwipe} />
+      {/* <Season4Stack.Screen name="LiquidSwipe" component={LiquidSwipe} /> */}
     </Season4Stack.Navigator>
   );
 };

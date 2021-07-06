@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		17BD8006AB6B500EB2BE5241 /* libPods-CustomAppRN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6421A0E18FD06F73D05338BF /* libPods-CustomAppRN.a */; };
+		18A8CE2D2691C0090094A3B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A8CE2C2691C0090094A3B8 /* GoogleService-Info.plist */; };
 		342BE0CC14D4AC836B649ADA /* libPods-CustomAppRN-CustomAppRNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF975CF5977E7A923A6909B /* libPods-CustomAppRN-CustomAppRNTests.a */; };
 		4A5757A9B4584A63B611D58F /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 57718596D351442D9B457D4A /* SFProDisplay-Semibold.otf */; };
 		69447C5D3CF74508A278EF12 /* SFProText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C11C7A746756486BB5BF662B /* SFProText-Regular.otf */; };
@@ -43,6 +44,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CustomAppRN/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CustomAppRN/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CustomAppRN/main.m; sourceTree = "<group>"; };
+		18A8CE2C2691C0090094A3B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CustomAppRN/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E3BE368A4F64058927AE0DD /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Medium.otf"; path = "../src/assets/fonts/SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
 		1FE2B8F5E9B14124ADE71420 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		344929E1B79A4E8AAC237113 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		13B07FAE1A68108700A75B9A /* CustomAppRN */ = {
 			isa = PBXGroup;
 			children = (
+				18A8CE2C2691C0090094A3B8 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -302,6 +305,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				18A8CE2D2691C0090094A3B8 /* GoogleService-Info.plist in Resources */,
 				F4BAE8C866D141649EE781B7 /* SFProDisplay-Medium.otf in Resources */,
 				0FE4DB81754644318F210649 /* SFProDisplay-Regular.otf in Resources */,
 				4A5757A9B4584A63B611D58F /* SFProDisplay-Semibold.otf in Resources */,

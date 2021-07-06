@@ -8,12 +8,22 @@ const ApplicationNavigation = ({navigation}) => {
     navigation.navigate('BankingApp');
   }, [navigation]);
 
+  const navigateToChatFireBaseApp = useCallback(() => {
+    navigation.navigate('ChatFireBaseApp');
+  }, [navigation]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={{marginBottom: 100}}>
-        <Text style={{textAlign: 'center'}}>Application Navigation</Text>
+        <Text style={{textAlign: 'center'}}>Application List</Text>
         <Pressable style={styles.btnNavigation} onPress={navigateToBankingApp}>
           <Text style={styles.title}>Banking App</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.btnNavigation}
+          onPress={navigateToChatFireBaseApp}>
+          <Text style={styles.title}>Chat FireBase App</Text>
         </Pressable>
       </View>
     </ScrollView>
