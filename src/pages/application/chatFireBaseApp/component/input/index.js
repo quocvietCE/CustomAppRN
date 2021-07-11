@@ -1,7 +1,7 @@
-import React from "react";
-import { TextInput, Text } from "react-native";
-import styles from "./styles";
-import { color } from "../../utility";
+import React from 'react';
+import {TextInput, Text} from 'react-native';
+import styles from './styles';
+import {color} from '../../utility';
 
 export default ({
   placeholder,
@@ -28,5 +28,6 @@ export default ({
     onSubmitEditing={onSubmitEditing}
     onBlur={onBlur}
     onFocus={onFocus}
+    autoCorrect={false}
   />
 );

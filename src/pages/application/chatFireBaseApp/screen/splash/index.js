@@ -9,7 +9,8 @@ export default ({navigation}) => {
   useEffect(() => {
     const redirect = setTimeout(() => {
       getAsyncStorage(keys.uuid)
-        .then((uuid) => {
+        .then(uuid => {
+          console.log('uuid: ', uuid);
           if (uuid) {
             setUniqueValue(uuid);
             navigation.replace('Dashboard');
@@ -17,7 +18,7 @@ export default ({navigation}) => {
             navigation.replace('Login');
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           navigation.replace('Login');
         });

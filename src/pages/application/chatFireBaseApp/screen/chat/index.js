@@ -9,7 +9,7 @@ import {
   Platform,
   Keyboard,
 } from 'react-native';
-import ImagePicker from 'react-native-image-picker';
+import {launchImageLibrary, launchCamera} from 'react-native-image-picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {globalStyle, color, appStyle} from '../../utility';
 import styles from './styles';
@@ -38,16 +38,18 @@ const Chat = ({route, navigation}) => {
         .child(currentUserId)
         .child(guestUserId)
         .on('value', dataSnapshot => {
-          let msgs = [];
-          dataSnapshot.forEach(child => {
-            msgs.push({
-              sendBy: child.val().messege.sender,
-              recievedBy: child.val().messege.reciever,
-              msg: child.val().messege.msg,
-              img: child.val().messege.img,
-            });
+          const messagesCover = Object.values(dataSnapshot.val()).map(item => {
+            return {
+              sendBy: item.messege.sender,
+              recievedBy: item.messege.reciever,
+              msg: item.messege.msg,
+              img: item.messege.img,
+            };
           });
-          setMesseges(msgs.reverse());
+
+          console.log('messagesCover: ', messagesCover);
+
+          setMesseges(messagesCover.reverse());
         });
     } catch (error) {
       alert(error);
@@ -74,16 +76,22 @@ const Chat = ({route, navigation}) => {
       storageOptions: {
         skipBackup: true,
       },
+      mediaType: 'photo',
+      quality: Platform.OS === 'ios' ? 0.1 : 1,
+      maxWidth: 500,
+      maxHeight: 500,
+      includeBase64: true,
     };
 
-    ImagePicker.showImagePicker(option, response => {
+    launchImageLibrary(option, response => {
       if (response.didCancel) {
         console.log('User cancel image picker');
       } else if (response.error) {
         console.log(' image picker error', response.error);
       } else {
         // Base 64
-        let source = 'data:image/jpeg;base64,' + response.data;
+        // let source = 'data:image/jpeg;base64,' + response.data;
+        let source = 'data:image/png;base64,' + response.assets[0].base64;
 
         senderMsg(msgValue, currentUserId, guestUserId, source)
           .then(() => {})

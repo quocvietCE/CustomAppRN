@@ -2,7 +2,6 @@ import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -15,7 +14,6 @@ import CardsScreen from './screens/CardsScreen';
 MaterialIcons.loadFont();
 
 const AppBankingStack = createStackNavigator();
-// const AppBankingStack = createSharedElementStackNavigator();
 const TabBankingStack = createBottomTabNavigator();
 
 const BankingApp = () => {
@@ -58,7 +56,7 @@ const BankingApp = () => {
         initialRouteName="Home"
         screenOptions={screenOptions}>
         <TabBankingStack.Screen name="Home" component={HomeScreen} />
-        <TabBankingStack.Screen
+        {/* <TabBankingStack.Screen
           name="SendRequest"
           component={SendRequestScreen}
           options={{title: 'Send & Request'}}
@@ -67,7 +65,7 @@ const BankingApp = () => {
           name="Cards"
           component={CardsScreen}
           options={{title: 'My Cards'}}
-        />
+        /> */}
       </TabBankingStack.Navigator>
     );
   };

@@ -2,6 +2,8 @@
   package="com.customapprn">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTENAL_STORAGE" />
 
     <application
       android:name=".MainApplication"

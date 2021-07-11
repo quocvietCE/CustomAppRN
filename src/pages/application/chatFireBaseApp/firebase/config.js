@@ -1,7 +1,12 @@
+import {Platform} from 'react-native';
+
 import Firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCOubHM5bpAxUZ4cuYkY0gWPCrTSPwIZaY',
+  apiKey:
+    Platform.OS === 'android'
+      ? 'AIzaSyCOubHM5bpAxUZ4cuYkY0gWPCrTSPwIZaY'
+      : 'AIzaSyCu9JMynRcUs0sv6JuIDlhlgbq6Z_uPUZw',
   databaseURL:
     'https://chatfirebaseapp-b77fd-default-rtdb.asia-southeast1.firebasedatabase.app/',
   projectId: 'chatfirebaseapp-b77fd',

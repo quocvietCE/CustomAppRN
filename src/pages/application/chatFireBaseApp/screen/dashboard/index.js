@@ -1,7 +1,14 @@
 import React, {useContext, useEffect, useState, useLayoutEffect} from 'react';
-import {SafeAreaView, Alert, Text, View, FlatList} from 'react-native';
+import {
+  SafeAreaView,
+  Alert,
+  Text,
+  View,
+  FlatList,
+  Platform,
+} from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import ImagePicker from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {Profile, ShowUsers, StickyHeader} from '../../component';
 import firebase from '../../firebase/config';
 import {color} from '../../utility';
@@ -54,9 +61,9 @@ export default ({navigation}) => {
   }, [navigation]);
 
   useEffect(() => {
-    // dispatchLoaderAction({
-    //   type: LOADING_START,
-    // });
+    dispatchLoaderAction({
+      type: LOADING_START,
+    });
     try {
       firebase
         .database()
@@ -68,30 +75,38 @@ export default ({navigation}) => {
             name: '',
             profileImg: '',
           };
-          dataSnapshot.forEach(child => {
-            if (uuid === child.val().uuid) {
+          // console.log('dataSnapshot: ', dataSnapshot);
+          // console.log('dataSnapshot.val(): ', dataSnapshot.val());
+          // console.log(
+          //   'Object(dataSnapshot.val()).values: ',
+          //   Object.values(dataSnapshot.val()),
+          // );
+          Object.values(dataSnapshot.val()).forEach(child => {
+            if (uuid === child.uuid) {
               currentUser.id = uuid;
-              currentUser.name = child.val().name;
-              currentUser.profileImg = child.val().profileImg;
+              currentUser.name = child.name;
+              currentUser.profileImg = child.profileImg;
             } else {
               users.push({
-                id: child.val().uuid,
-                name: child.val().name,
-                profileImg: child.val().profileImg,
+                id: child.uuid,
+                name: child.name,
+                profileImg: child.profileImg,
               });
             }
           });
+          // console.log('currentUser: ', currentUser);
+          // console.log('users: ', users);
           setUserDetail(currentUser);
           setAllUsers(users);
-          // dispatchLoaderAction({
-          //   type: LOADING_STOP,
-          // });
+          dispatchLoaderAction({
+            type: LOADING_STOP,
+          });
         });
     } catch (error) {
       alert(error);
-      // dispatchLoaderAction({
-      //   type: LOADING_STOP,
-      // });
+      dispatchLoaderAction({
+        type: LOADING_STOP,
+      });
     }
   }, []);
 
@@ -100,10 +115,15 @@ export default ({navigation}) => {
       storageOptions: {
         skipBackup: true,
       },
+      mediaType: 'photo',
+      quality: Platform.OS === 'ios' ? 0.1 : 1,
+      maxWidth: 500,
+      maxHeight: 500,
+      includeBase64: true,
     };
 
-    ImagePicker.showImagePicker(options, response => {
-      console.log('Response = ', response);
+    launchImageLibrary(options, response => {
+      // console.log('Response = ', response);
 
       if (response.didCancel) {
         console.log('User cancelled photo picker');
@@ -113,25 +133,25 @@ export default ({navigation}) => {
         console.log('User tapped custom button: ', response.customButton);
       } else {
         // Base 64 image:
-        let source = 'data:image/jpeg;base64,' + response.data;
-        // dispatchLoaderAction({
-        //   type: LOADING_START,
-        // });
+        let source = 'data:image/png;base64,' + response.assets[0].base64;
+        dispatchLoaderAction({
+          type: LOADING_START,
+        });
         UpdateUser(uuid, source)
           .then(() => {
             setUserDetail({
               ...userDetail,
               profileImg: source,
             });
-            // dispatchLoaderAction({
-            //   type: LOADING_STOP,
-            // });
+            dispatchLoaderAction({
+              type: LOADING_STOP,
+            });
           })
           .catch(() => {
             alert(err);
-            // dispatchLoaderAction({
-            //   type: LOADING_STOP,
-            // });
+            dispatchLoaderAction({
+              type: LOADING_STOP,
+            });
           });
       }
     });
@@ -151,13 +171,13 @@ export default ({navigation}) => {
 
   // * ON IMAGE TAP
   const imgTap = (profileImg, name) => {
-    if (!profileImg) {
+    if (profileImg) {
+      navigation.navigate('ShowFullImg', {name, img: profileImg});
+    } else {
       navigation.navigate('ShowFullImg', {
         name,
         imgText: name.charAt(0),
       });
-    } else {
-      navigation.navigate('ShowFullImg', {name, img: profileImg});
     }
   };
 
@@ -188,6 +208,9 @@ export default ({navigation}) => {
       return deviceHeight / 6;
     }
   };
+
+  // console.log('allUsers: ', allUsers);
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: color.BLACK}}>
       {getScrollPosition > getOpacity() && (
@@ -220,14 +243,17 @@ export default ({navigation}) => {
             />
           </View>
         }
-        renderItem={({item}) => (
-          <ShowUsers
-            name={item.name}
-            img={item.profileImg}
-            onImgTap={() => imgTap(item.profileImg, item.name)}
-            onNameTap={() => nameTap(item.profileImg, item.name, item.id)}
-          />
-        )}
+        renderItem={({item}) => {
+          // console.log('item: ', item);
+          return (
+            <ShowUsers
+              name={item.name}
+              img={item.profileImg}
+              onImgTap={() => imgTap(item.profileImg, item.name)}
+              onNameTap={() => nameTap(item.profileImg, item.name, item.id)}
+            />
+          );
+        }}
       />
     </SafeAreaView>
   );

@@ -1,17 +1,20 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 
+import {StatusBar} from 'react-native';
 import NavigationChatFireBaseApp from './navigation';
+import {Loader} from './component';
+
+import {StoreProvider} from './context/store';
 
 const ChatFireBaseApp = () => {
   return (
-    // <View>
-    //   <Text>ChatFireBaseApp</Text>
-    // </View>
-    <NavigationChatFireBaseApp />
+    <StoreProvider>
+      <StatusBar barStyle="light-content" />
+      <NavigationChatFireBaseApp />
+      <Loader />
+    </StoreProvider>
   );
 };
 
 export default ChatFireBaseApp;
-
-const styles = StyleSheet.create({});
+// https://www.youtube.com/watch?v=ToMn14kM6Ws&list=PLQ4wpygoZpKO-qpGFnIdnKuz11S2dwyew&index=1

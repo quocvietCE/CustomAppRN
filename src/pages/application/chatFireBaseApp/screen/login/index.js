@@ -6,6 +6,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 ('react-native-keyboard-aware-scroll-view');
 import firebase from '../../firebase/config';
@@ -19,10 +20,10 @@ import {LoginRequest} from '../../network';
 
 export default ({navigation}) => {
   const globalState = useContext(Store);
-  // const {dispatchLoaderAction} = globalState;
+  const {dispatchLoaderAction} = globalState;
   const [credential, setCredential] = useState({
-    email: '',
-    password: '',
+    email: 'vietnguyen@gmail.com',
+    password: '123456',
   });
   const [logo, toggleLogo] = useState(true);
   const {email, password} = credential;
@@ -46,32 +47,37 @@ export default ({navigation}) => {
     } else if (!password) {
       alert('Password is required');
     } else {
-      // dispatchLoaderAction({
-      //   type: LOADING_START,
-      // });
+      dispatchLoaderAction({
+        type: LOADING_START,
+      });
       LoginRequest(email, password)
         .then(res => {
           if (!res.additionalUserInfo) {
-            // dispatchLoaderAction({
-            //   type: LOADING_STOP,
-            // });
+            dispatchLoaderAction({
+              type: LOADING_STOP,
+            });
             alert(res);
             return;
           }
           setAsyncStorage(keys.uuid, res.user.uid);
           setUniqueValue(res.user.uid);
-          // dispatchLoaderAction({
-          //   type: LOADING_STOP,
-          // });
+          dispatchLoaderAction({
+            type: LOADING_STOP,
+          });
           setInitialState();
           navigation.navigate('Dashboard');
         })
         .catch(err => {
-          // dispatchLoaderAction({
-          //   type: LOADING_STOP,
-          // });
+          dispatchLoaderAction({
+            type: LOADING_STOP,
+          });
           alert(err);
         });
+      // setTimeout(() => {
+      //   dispatchLoaderAction({
+      //     type: LOADING_STOP,
+      //   });
+      // }, 2000);
     }
   };
   // * ON INPUT FOCUS

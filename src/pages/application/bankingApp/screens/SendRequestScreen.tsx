@@ -12,7 +12,7 @@ MaterialIcons.loadFont();
 const SendRequestScreen = () => {
   const [amount, setAmount] = useState('0');
 
-  const convertToDollars = (currentAmount) => {
+  const convertToDollars = currentAmount => {
     const newAmount = currentAmount / 100;
 
     return newAmount.toLocaleString('en-US', {
@@ -22,7 +22,7 @@ const SendRequestScreen = () => {
   };
 
   const pressKey = (item, index) => {
-    setAmount((prev) => {
+    setAmount(prev => {
       return index != 10 ? prev + item : prev.slice(0, prev.length - 1);
     });
   };

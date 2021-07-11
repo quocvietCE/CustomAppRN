@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Text from '../components/Text';
 
+import {View} from 'react-native';
+
 const CardsScreen = () => {
   const myCards = [
     {
@@ -68,14 +70,19 @@ const CardsScreen = () => {
   );
 
   return (
-    <Container>
+    // <Container>
+    //   <Text center large heavy margin="16px 0 0 0">
+    //     My Cards
+    //   </Text>
+
+    //   <Cards data={myCards} renderItem={renderCard} />
+    //   <StatusBar barStyle="light-content" />
+    // </Container>
+    <View style={{flex: 1}}>
       <Text center large heavy margin="16px 0 0 0">
         My Cards
       </Text>
-
-      <Cards data={myCards} renderItem={renderCard} />
-      <StatusBar barStyle="light-content" />
-    </Container>
+    </View>
   );
 };
 
@@ -110,7 +117,7 @@ const CardInfo = styled.View`
 const CardLogoContainer = styled.View`
   width: 64px;
   height: 64px;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${props => props.bgColor};
   align-items: center;
   justify-content: center;
   border-radius: 32px;

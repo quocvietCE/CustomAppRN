@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react';
+
 import {
   Text,
   SafeAreaView,
@@ -6,6 +7,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 import firebase from '../../firebase/config';
 import {InputField, RoundCornerButton, Logo} from '../../component';
@@ -18,12 +20,12 @@ import {SignUpRequest, AddUser} from '../../network';
 
 export default ({navigation}) => {
   const globalState = useContext(Store);
-  // const { dispatchLoaderAction } = globalState;
+  const {dispatchLoaderAction} = globalState;
   const [credential, setCredential] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: 'bui thao',
+    email: 'buithao@gmail.com',
+    password: '123456',
+    confirmPassword: '123456',
   });
   const [logo, toggleLogo] = useState(true);
   const {email, password, confirmPassword, name} = credential;
@@ -44,15 +46,15 @@ export default ({navigation}) => {
     } else if (password !== confirmPassword) {
       alert('Password did not match');
     } else {
-      // dispatchLoaderAction({
-      //   type: LOADING_START,
-      // });
+      dispatchLoaderAction({
+        type: LOADING_START,
+      });
       SignUpRequest(email, password)
         .then(res => {
           if (!res.additionalUserInfo) {
-            // dispatchLoaderAction({
-            //   type: LOADING_STOP,
-            // });
+            dispatchLoaderAction({
+              type: LOADING_STOP,
+            });
             alert(res);
             return;
           }
@@ -62,22 +64,22 @@ export default ({navigation}) => {
             .then(() => {
               setAsyncStorage(keys.uuid, uid);
               setUniqueValue(uid);
-              // dispatchLoaderAction({
-              //   type: LOADING_STOP,
-              // });
+              dispatchLoaderAction({
+                type: LOADING_STOP,
+              });
               navigation.replace('Dashboard');
             })
             .catch(err => {
-              // dispatchLoaderAction({
-              //   type: LOADING_STOP,
-              // });
+              dispatchLoaderAction({
+                type: LOADING_STOP,
+              });
               alert(err);
             });
         })
         .catch(err => {
-          // dispatchLoaderAction({
-          //   type: LOADING_STOP,
-          // });
+          dispatchLoaderAction({
+            type: LOADING_STOP,
+          });
           alert(err);
         });
     }
@@ -89,20 +91,21 @@ export default ({navigation}) => {
       [name]: value,
     });
   };
-  // * ON INPUT FOCUS
 
+  // * ON INPUT FOCUS
   const handleFocus = () => {
     setTimeout(() => {
       toggleLogo(false);
     }, 200);
   };
-  // * ON INPUT BLUR
 
+  // * ON INPUT BLUR
   const handleBlur = () => {
     setTimeout(() => {
       toggleLogo(true);
     }, 200);
   };
+
   return (
     <KeyboardAvoidingView
       keyboardVerticalOffset={keyboardVerticalOffset}

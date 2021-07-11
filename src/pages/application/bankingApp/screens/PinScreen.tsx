@@ -18,10 +18,10 @@ const PinScreen = ({navigation}) => {
     }
   }, [pinCount, navigation]);
 
-  // useEffect(() => {
-  //   checkPinCount();tv    
-  //   // return null;
-  // }, [pinCount, navigation]);
+  useEffect(() => {
+    checkPinCount();
+    return null;
+  }, [pinCount, navigation]);
 
   const renderPins = () => {
     const pins = [];
@@ -44,7 +44,7 @@ const PinScreen = ({navigation}) => {
   const pressKey = (_, index) => {
     console.log('_: ', _);
     console.log('index: ', index);
-    setPinCount((prev) => {
+    setPinCount(prev => {
       console.log('prev: ', prev);
       return index != 10 ? prev + 1 : prev - 1;
     });

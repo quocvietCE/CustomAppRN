@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Item, Input } from "native-base";
-import { color } from "../../utility";
-import { fieldHeight } from "../../utility/styleHelper/appStyle";
+import React from 'react';
+import {StyleSheet, TextInput, View} from 'react-native';
+// import {Item, Input} from 'native-base';
+import {color} from '../../utility';
+import {fieldHeight} from '../../utility/styleHelper/appStyle';
 
 const FieldInput = ({
   placeholder,
@@ -16,8 +16,8 @@ const FieldInput = ({
   getRef,
 }) => {
   return (
-    <Item floatingLabel style={styles.inputContainer}>
-      <Input
+    <View style={styles.inputContainer}>
+      <TextInput
         placeholder={placeholder}
         placeholderTextColor={color.WHITE}
         value={value}
@@ -26,18 +26,18 @@ const FieldInput = ({
         secureTextEntry={secureTextEntry}
         onFocus={onFocus}
         onBlur={onBlur}
-        returnKeyType={"next"}
+        returnKeyType={'next'}
         ref={ref}
         getRef={getRef}
         onSubmitEditing={onSubmitEditing}
       />
-    </Item>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   inputContainer: {
-    width: "90%",
+    width: '90%',
     borderRadius: 20,
     marginVertical: 10,
     backgroundColor: color.DARK_GRAY,
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
   input: {
     paddingLeft: 16,
     color: color.WHITE,
-    position: "absolute",
+    position: 'absolute',
     top: 0,
-    width: "100%",
+    width: '100%',
   },
 });
 
