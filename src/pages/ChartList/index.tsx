@@ -52,7 +52,10 @@ const ChartListNavigation = ({navigation}) => {
           <Text style={styles.title}>Chart Victory</Text>
         </Pressable>
 
-        <Pressable style={styles.btnNavigation} onPress={navigateToAnimatedV2}>
+        <Pressable
+          style={styles.btnNavigation}
+          onPress={navigateToAnimatedV2}
+          disabled={true}>
           <Text style={styles.title}>Chart With Animated v2 *</Text>
         </Pressable>
       </View>

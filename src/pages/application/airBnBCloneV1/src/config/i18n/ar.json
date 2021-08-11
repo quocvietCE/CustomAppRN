@@ -1,0 +1,62 @@
+{
+    "error": "Error",
+    "okay": "Okay",
+    "noInternet": "No Internet Connection",
+    "tryAgain": "Try Again",
+    "turnOnNotificationScreen": {
+        "turnOn": "تشغيل الإخطارات?",
+        "weCanLet": "يمكننا إخبارك عندما يقوم شخص ما بإرسال رسالة إليك ، أو يخطرك بنشاط الحساب المهم الآخر.",
+        "yes": "نعم ، أعلمني",
+        "skip": "تخطى"
+    },
+    "logoutScreen": {
+        "login": "Log In",
+        "welcomeTo": "Welcome To",
+        "continueWith": "Tiếp tục với",
+        "createAccount": "Tạo tài khoản",
+        "moreOptions": "Thêm lựa chọn"
+    },
+    "logInScreen": {
+        "login": "Log In",
+        "emailAddress": "EMAIL ADDRESS",
+        "password": "PASSWORD",
+        "show": "Show",
+        "hide": "Hide",
+        "forgotPassword": "Forgot Password"
+    },
+    "exploreScreen": {
+        "exploreAirbnb": "Explore Airbnb",
+        "experiences": "Experiences",
+        "seeAll": "See all",
+        "home": "Homes",
+        "popularReservation": "Popular Reservation",
+        "try": "try \"Cape Town\""
+    },
+    "savedScreen": {
+        "saved": "Saved",
+        "notEveryDay": "Not every day is filled with adventures, but you can start planning for the next one.",
+        "tapTheHeart": "Tap the heart on any home to start saving your favorites here.",
+        "findHomes": "Find homes"
+    },
+    "profile": {
+        "logout": "تسجيل خروج",
+        "changeLanguage": "تغيير اللغة"
+    },
+    "tabTitle": {
+        "explore": "EXPLORE",
+        "saved": "SAVED",
+        "trips": "TRIPS",
+        "inbox": "INBOX",
+        "profile": "PROFILE"
+    },
+    "apiError": {
+        "NetworkError": "Network Error",
+        "BadRequest": "Bad Request",
+        "SessionExpired": "Session Expired",
+        "Forbidden": "The request forbidden",
+        "NotFound": "The request not found",
+        "MethodNotAllow": "Method request not allowed",
+        "ServerError": "API Server error. Please try again!"
+    },
+    "userLoginFailed": "User Login Failed"
+}

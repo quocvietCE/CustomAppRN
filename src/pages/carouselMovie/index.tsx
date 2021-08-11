@@ -8,7 +8,6 @@ import {
   Image,
   Dimensions,
   Animated,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   Platform,
 } from 'react-native';
@@ -36,7 +35,7 @@ const Backdrop = ({movies, scrollX}) => {
     <View style={{height: BACKDROP_HEIGHT, width, position: 'absolute'}}>
       <FlatList
         data={movies.reverse()}
-        keyExtractor={(item) => item.key + '-backdrop'}
+        keyExtractor={item => item.key + '-backdrop'}
         removeClippedSubviews={false}
         contentContainerStyle={{width, height: BACKDROP_HEIGHT}}
         renderItem={({item, index}) => {
@@ -115,7 +114,7 @@ export default function App({navigation}) {
       <Animated.FlatList
         showsHorizontalScrollIndicator={false}
         data={movies}
-        keyExtractor={(item) => item.key}
+        keyExtractor={item => item.key}
         horizontal
         bounces={false}
         decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
@@ -131,7 +130,7 @@ export default function App({navigation}) {
           [{nativeEvent: {contentOffset: {x: scrollX}}}],
           {
             useNativeDriver: true,
-            listener: (event) => {
+            listener: event => {
               backdropAnimated.setValue(event.nativeEvent.contentOffset.x);
             },
           },

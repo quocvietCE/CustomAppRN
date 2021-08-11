@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {
   StatusBar,
   Animated,
@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -97,7 +96,7 @@ export const Indicator = ({scrollX}) => {
 const Backdrop = ({scrollX}) => {
   const bg = scrollX.interpolate({
     inputRange: bgs.map((_, i) => i * width),
-    outputRange: bgs.map((bg) => bg),
+    outputRange: bgs.map(bg => bg),
   });
   return (
     <Animated.View
@@ -163,7 +162,7 @@ const OnboardScreen = ({navigation}) => {
       <Backdrop scrollX={scrollX} />
       <Animated.FlatList
         data={DATA}
-        keyExtractor={(item) => item.key}
+        keyExtractor={item => item.key}
         contentContainerStyle={{
           paddingBottom: 100,
         }}

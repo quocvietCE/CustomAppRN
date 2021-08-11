@@ -1,0 +1,62 @@
+{
+    "error": "Lỗi",
+    "okay": "Okay",
+    "noInternet": "Mất kết nối mạng",
+    "tryAgain": "Thử lại",
+    "turnOnNotificationScreen": {
+        "turnOn": "Bật thông báo?",
+        "weCanLet": "Chúng tôi có thể cho bạn biết khi ai đó nhắn tin cho bạn hoặc thông báo cho bạn về hoạt động tài khoản quan trọng khác.",
+        "yes": "Có, thông báo cho tôi",
+        "skip": "Bỏ qua"
+    },
+    "logoutScreen": {
+        "login": "Đăng Nhập",
+        "welcomeTo": "Chào mừng đến với",
+        "continueWith": "Tiếp tục với",
+        "createAccount": "Tạo tài khoản",
+        "moreOptions": "Thêm lựa chọn"
+    },
+    "logInScreen": {
+        "login": "Đăng Nhập",
+        "emailAddress": "ĐỊA CHỈ EMAIL",
+        "password": "MẬT KHẨU",
+        "show": "Hiển thị",
+        "hide": "Ần",
+        "forgotPassword": "Quên Mật khẩu"
+    },
+    "exploreScreen": {
+        "exploreAirbnb": "Khám Phá  Airbnb",
+        "experiences": "Trải nghiệm",
+        "seeAll": "Xem tất cả",
+        "home": "Nhà",
+        "popularReservation": "Địa điểm phổ biến",
+        "try": "thử \"Đà lạt\""
+    },
+    "savedScreen": {
+        "saved": "Yêu thích",
+        "notEveryDay": "Không phải ngày nào cũng tràn ngập những cuộc phiêu lưu, nhưng bạn có thể bắt đầu lập kế hoạch cho chuyến đi tiếp theo.",
+        "tapTheHeart": "Nhấn vào trái tim trên bất kỳ ngôi nhà nào để bắt đầu lưu các mục yêu thích của bạn tại đây.",
+        "findHomes": "Tìm nhà"
+    },
+    "profile": {
+        "logout": "Đăng xuất",
+        "changeLanguage": "Thay đổi ngôn ngữ"
+    },
+    "tabTitle": {
+        "explore": "KHÁM PHÁ",
+        "saved": "LƯU TRỮ",
+        "trips": "HÀNH TRÌNH",
+        "inbox": "TIN NHAN",
+        "profile": "THÔNG TIN"
+    },
+    "apiError": {
+        "NetworkError": "Lỗi mạng",
+        "BadRequest": "Yêu cầu không hợp lệ",
+        "SessionExpired": "Phiên làm việc hết hạn",
+        "Forbidden": "Yêu cầu bị từ chối",
+        "NotFound": "Yêu cầu không được tìm thấy",
+        "MethodNotAllow": "Phương thức yêu cầu không hợp lệ",
+        "ServerError": "Lỗi máy chủ API. Vui lòng thử lại!"
+    },
+    "userLoginFailed": "Người dùng đăng nhập không đúng"
+}

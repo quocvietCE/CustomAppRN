@@ -200,9 +200,6 @@ const ChartListNavigation = ({navigation}) => {
           <Text style={styles.title}>Card Image Background</Text>
         </Pressable>
 
-        {/* <Pressable style={styles.btnNavigation} onPress={navigateToLiquidSwipe}>
-          <Text style={styles.title}>Liquid Swipe</Text>
-        </Pressable> */}
       </View>
     </ScrollView>
   );
