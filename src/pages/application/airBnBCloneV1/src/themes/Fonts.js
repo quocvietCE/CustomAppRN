@@ -24,32 +24,39 @@ const style = {
     fontSize: size.h1,
   },
   h2: {
-    fontWeight: type.bold,
+    // fontWeight: type.bold,
     fontSize: size.h2,
+    fontWeight: 'bold',
   },
   h3: {
-    fontFamily: type.emphasis,
+    // fontFamily: type.emphasis,
     fontSize: size.h3,
+    fontStyle: 'italic',
   },
   h4: {
-    fontFamily: type.base,
+    // fontFamily: type.base,
     fontSize: size.h4,
+    fontWeight: 'bold',
   },
   h5: {
-    fontFamily: type.base,
+    // fontFamily: type.base,
     fontSize: size.h5,
+    fontWeight: 'bold',
   },
   h6: {
-    fontFamily: type.emphasis,
+    // fontFamily: type.emphasis,
     fontSize: size.h6,
+    fontStyle: 'italic',
   },
   normal: {
     // fontFamily: type.base,
     fontSize: size.regular,
+    fontWeight: 'bold',
   },
   description: {
-    fontFamily: type.base,
+    // fontFamily: type.base,
     fontSize: size.medium,
+    fontWeight: 'bold',
   },
 };
 
