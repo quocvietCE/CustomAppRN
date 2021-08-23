@@ -13,6 +13,7 @@ import FoodDeliveryV1 from '../pages/application/foodDeliveryV1';
 import FacebookV1 from '../pages/application/facebookV1';
 import AnimatedLoginScreen from '../pages/application/animatedLoginScreen';
 import FoodDeliveryV2 from '../pages/application/foodDeliveryV2';
+import WhatsAppV1 from '../pages/application/whatsAppV1';
 
 // ------------------- Application ---------------------------
 
@@ -29,6 +30,7 @@ export type ApplicationStackParamType = {
   FacebookV1: undefined;
   AnimatedLoginScreen: undefined;
   FoodDeliveryV2: undefined;
+  WhatsAppV1: undefined;
 };
 
 const AppStack = createStackNavigator<ApplicationStackParamType>();
@@ -54,6 +56,7 @@ const ApplicationStackNavigator = () => {
         component={AnimatedLoginScreen}
       />
       <AppStack.Screen name="FoodDeliveryV2" component={FoodDeliveryV2} />
+      <AppStack.Screen name="WhatsAppV1" component={WhatsAppV1} />
     </AppStack.Navigator>
   );
 };

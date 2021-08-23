@@ -48,6 +48,10 @@ const ApplicationNavigation = ({ navigation }) => {
     navigation.navigate('AnimatedLoginScreen');
   }, [navigation]);
 
+  const navigateToWhatsAppV1 = useCallback(() => {
+    navigation.navigate('WhatsAppV1');
+  }, [navigation]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={{ marginBottom: 100 }}>
@@ -106,6 +110,10 @@ const ApplicationNavigation = ({ navigation }) => {
           style={styles.btnNavigation}
           onPress={navigateToAnimatedLoginScreen}>
           <Text style={styles.title}>Animated Login Screen</Text>
+        </Pressable>
+
+        <Pressable style={styles.btnNavigation} onPress={navigateToWhatsAppV1}>
+          <Text style={styles.title}>Whats App V1</Text>
         </Pressable>
       </View>
     </ScrollView>
