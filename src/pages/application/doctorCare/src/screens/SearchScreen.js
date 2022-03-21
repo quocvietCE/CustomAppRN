@@ -12,8 +12,8 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {CardHome} from './HomeScreen';
-import MapView, {Marker} from 'react-native-maps';
+import { CardHome } from './HomeScreen';
+// import MapView, { Marker } from 'react-native-maps';
 import LinearGradient from 'react-native-linear-gradient';
 Entypo.loadFont();
 Octicons.loadFont();
@@ -45,7 +45,7 @@ const Header = () => {
         <View style={styles.wrapperInput}>
           <Feather name="map-pin" size={18} color="gray" />
           <TextInput
-            style={[styles.inputText, {color: '#9770A3'}]}
+            style={[styles.inputText, { color: '#9770A3' }]}
             value="Current Location"
           />
           <Text>12 ml</Text>
@@ -58,8 +58,8 @@ const Header = () => {
 const Map = () => {
   return (
     <View>
-      <MapView
-        style={[styles.mapView, Platform.OS === 'android' && {height: 200}]}
+      {/* <MapView
+        style={[styles.mapView, Platform.OS === 'android' && { height: 200 }]}
         initialRegion={{
           latitude: 10.762622,
           longitude: 106.660172,
@@ -101,7 +101,7 @@ const Map = () => {
             </View>
           </View>
         </Marker>
-      </MapView>
+      </MapView> */}
     </View>
   );
 };
@@ -122,8 +122,7 @@ const ListCard = () => {
           isLike: true,
           rating: 4,
           tag: 'Wellness',
-          url:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvYM1uBz2gzlcOYWCZQYAJfUAvwZRO6d4SQ&usqp=CAU',
+          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvYM1uBz2gzlcOYWCZQYAJfUAvwZRO6d4SQ&usqp=CAU',
         }}
       />
       <CardHome
@@ -139,8 +138,7 @@ const ListCard = () => {
           isLike: true,
           rating: 4,
           tag: 'Wellness',
-          url:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJan_IYh0AVBoQqnMX7CpizojZ6cPlOJqVlA&usqp=CAU',
+          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJan_IYh0AVBoQqnMX7CpizojZ6cPlOJqVlA&usqp=CAU',
         }}
       />
     </View>
@@ -173,7 +171,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  icon: {marginLeft: 12, transform: [{rotate: '-90deg'}]},
+  icon: { marginLeft: 12, transform: [{ rotate: '-90deg' }] },
   headerBody: {
     flexDirection: 'row',
     justifyContent: 'space-between',

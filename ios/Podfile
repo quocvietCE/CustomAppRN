@@ -1,14 +1,15 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 pod 'Firebase/Analytics'
-platform :ios, '10.0'
+platform :ios, '11.0'
+
 
 target 'CustomAppRN' do
   config = use_native_modules!
-  rn_maps_path = '../node_modules/react-native-maps'
-  pod 'react-native-google-maps', :path => rn_maps_path
-  pod 'GoogleMaps'
-  pod 'Google-Maps-iOS-Utils'
+#  rn_maps_path = '../node_modules/react-native-maps'
+#  pod 'react-native-google-maps', :path => rn_maps_path
+#  pod 'GoogleMaps'
+#  pod 'Google-Maps-iOS-Utils'
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -29,12 +30,19 @@ target 'CustomAppRN' do
   # you should disable the next line.
   use_flipper!()
 
+#  post_install do |installer|
+#    react_native_post_install(installer)
+#    installer.pods_project.targets.each do |target|
+#      target.build_configurations.each do |config|
+#          config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '-DDONT_AUTOINSTALL_REANIMATED'
+#      end
+#    end
+#  end
   post_install do |installer|
-    react_native_post_install(installer)
-    # installer.pods_project.targets.each do |target|
-    #   target.build_configurations.each do |config|
-    #       config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '-DDONT_AUTOINSTALL_REANIMATED'
-    #   end
-    # end
-  end
+      installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings["ONLY_ACTIVE_ARCH"] = "NO"
+        end
+      end
+    end
 end

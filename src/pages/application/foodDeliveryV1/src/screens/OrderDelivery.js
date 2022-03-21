@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import MapViewDirections from 'react-native-maps-directions';
+// import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+// import MapViewDirections from 'react-native-maps-directions';
 
 import { COLORS, icons, GOOGLE_API_KEY, SIZES, FONTS } from '../constants';
 
@@ -75,15 +75,15 @@ const OrderDelivery = ({ navigation, route }) => {
       );
     };
 
-    const carIcon = () => (
-      <Marker
-        coordinate={fromLocation}
-        anchor={{ x: 0.5, y: 0.5 }}
-        flat={true}
-        rotation={angle}>
-        <Image source={icons.car} style={{ width: 40, height: 40 }} />
-      </Marker>
-    );
+    // const carIcon = () => (
+    //   <Marker
+    //     coordinate={fromLocation}
+    //     anchor={{ x: 0.5, y: 0.5 }}
+    //     flat={true}
+    //     rotation={angle}>
+    //     <Image source={icons.car} style={{ width: 40, height: 40 }} />
+    //   </Marker>
+    // );
 
     console.log('fromLocation: ', fromLocation);
     console.log('toLocation: ', toLocation);
@@ -91,7 +91,7 @@ const OrderDelivery = ({ navigation, route }) => {
 
     return (
       <View style={{ flex: 1 }}>
-        <MapView
+        {/* <MapView
           ref={mapView}
           style={{ flex: 1 }}
           provider={PROVIDER_GOOGLE}
@@ -143,7 +143,7 @@ const OrderDelivery = ({ navigation, route }) => {
               }
             }}
           />
-        </MapView>
+        </MapView> */}
       </View>
     );
   };
